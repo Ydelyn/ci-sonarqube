@@ -36,6 +36,7 @@ jobs:
       # Analyse SonarQube
       - name: Run SonarQube Analysis
         run: |
-          sonar-scanner -Dsonar.projectKey=RWB -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_TOKEN
+          sonar-scanner -Dsonar.projectKey=RWB -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
         env:
-          SONAR_TOKEN: sqp_7518c4ed7f073417c6ce7c1f77a90efcbc57ed54  # Utilisation du token stocké dans les secrets GitHub
+          SONAR_TOKEN: sqp_7518c4ed7f073417c6ce7c1f77a90efcbc57ed54
+          SONAR_URL: http://localhost:9000 # À modifier par une adresse accessible par Github (pas localhost)
