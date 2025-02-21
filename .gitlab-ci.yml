@@ -1,0 +1,12 @@
+stages:
+  - sonar
+
+# Étape d'analyse SonarQube
+sonar_analysis:
+  stage: sonar
+  image: maven:3.8.4-jdk-11  # Utilise l'image Docker Maven avec JDK 11
+  script:
+    - echo "Running SonarQube analysis..."
+    - sonar-scanner -Dsonar.projectKey=RWB -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_7518c4ed7f073417c6ce7c1f77a90efcbc57ed54
+  only:
+    - main
